@@ -1,7 +1,13 @@
-.classpath
-.project
-.settings
-bin
-bin-tests
-dist
-jar
+# Java-files
+*.class
+target/
+
+# Package-files
+*.jar
+*.war
+*.ear
+
+# IDE-files
+.idea
+*.ipr
+*.iml
