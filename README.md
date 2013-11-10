@@ -54,5 +54,5 @@ a) Always initialize the countAll;
 
 # Acknowledgements
 
--Patrick Mairif (guy that created this awsome stuff)
--Vegard Aasen (guy that just made it a bit easier to use + removing all stuff that could be removed :P)
+* Patrick Mairif (guy that created this awsome stuff)
+* Vegard Aasen (guy that just made it a bit easier to use + removing all stuff that could be removed :P)
