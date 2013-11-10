@@ -11,13 +11,18 @@ package net.sf.jcprogress;
 
 /**
  * provide progress indicator with up to date status information
+ *
  * @author pmairif
  * @since 1.0
  */
 public interface ProgressStatusProvider {
-	public String getProgressStatusText();
-	
-	public int getCurrentProgressCount();
-	
-	public int getWholeProcessCount();
+
+    public static final String EMPTY = "";
+
+    public String getProgressStatusText();
+
+    public int getCurrentProgressCount();
+
+    public int getWholeProcessCount();
+
 }

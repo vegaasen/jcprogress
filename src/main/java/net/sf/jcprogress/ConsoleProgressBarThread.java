@@ -17,6 +17,11 @@ import java.util.Locale;
  * @author pmairif
  */
 public final class ConsoleProgressBarThread extends ConsoleProgressThreadBase {
+
+    public ConsoleProgressBarThread(PrintStream out, ProgressStatusProvider statusTextProvider) {
+        this(out, statusTextProvider, Locale.getDefault());
+    }
+
     /**
      * create new progress bar and set the counter to be reached.
      */
@@ -24,10 +29,6 @@ public final class ConsoleProgressBarThread extends ConsoleProgressThreadBase {
         super(out, statusTextProvider, locale);
 
         this.barSize = 40;
-    }
-
-    public ConsoleProgressBarThread(PrintStream out, ProgressStatusProvider statusTextProvider) {
-        this(out, statusTextProvider, Locale.getDefault());
     }
 
     /**

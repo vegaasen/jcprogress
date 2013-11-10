@@ -124,7 +124,7 @@ public class ConsoleDemo implements ProgressStatusProvider {
     }
 
     public void run() {
-        for (count = 0; count < countAll; count += 100) {
+        for (count = 0; count < countAll; count += 1) {
             try {
                 Thread.sleep(sleep);
             } catch (InterruptedException e) {
@@ -134,7 +134,7 @@ public class ConsoleDemo implements ProgressStatusProvider {
     }
 
     public void run(ProgressThread progress) {
-        for (count = 0; count < countAll; count += 100) {
+        for (count = 0; count < countAll; count += 1) {
             progress.update(false);
             try {
                 Thread.sleep(sleep);

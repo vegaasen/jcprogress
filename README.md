@@ -13,4 +13,9 @@ You can simply use the demo located at the following package-level:
 
 # Usage
 
-(coming..)
+## Console Progressbar
+
+    ConsoleProgressThreadBase progress = new ConsoleProgressBarThread(SomeRandom<PrintStream>);
+    progress.start();
+    //your logic that should be measured goes here.
+    progress.waitToStop();
