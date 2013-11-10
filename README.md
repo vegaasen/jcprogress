@@ -33,7 +33,7 @@ Simplest example (yet) possible:
         @Override
         public void task() throws Exception {
             setExpectedNumber(50); // <---- IMPORTANT
-            for (curr = 0; curr < getExpectedNumber(); curr++) { // <---- IMPORTANT
+            for (; curr < getExpectedNumber(); increment()) { // <---- IMPORTANT
                 myPointlessAndMeasuredLogic();
             }
         }
@@ -50,7 +50,10 @@ There are two things to notice from the example (---^). The first thing is that 
 measured element. If this is not done, there is nothing to measure - so this is the first requirement. The second thing to notice
 is the incrementing of the count-attribute. This tracks how long in the process it has been traveling.
 So, this basically cooks down to two things:
-a) Always initialize the countAll;
+
+* Always initialize the with an expected number (the number you're working towards - measurable) using setExpectedNumber(num)
+* Always increment the current ongoing number of elements with calling increment(). Decrement() is also supported, if needed..
+
 
 # Acknowledgements
 

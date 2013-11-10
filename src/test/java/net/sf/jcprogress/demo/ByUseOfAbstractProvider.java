@@ -20,7 +20,7 @@ public final class ByUseOfAbstractProvider {
         @Override
         public void task() throws Exception {
             setExpectedNumber(50); // <---- IMPORTANT
-            for (curr = 0; curr < getExpectedNumber(); curr++) { // <---- IMPORTANT
+            for (; curr < getExpectedNumber(); increment()) { // <---- IMPORTANT
                 myPointlessAndMeasuredLogic();
             }
         }

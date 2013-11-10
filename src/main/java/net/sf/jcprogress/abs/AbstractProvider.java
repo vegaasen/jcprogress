@@ -47,6 +47,14 @@ public abstract class AbstractProvider implements ProgressStatusProvider {
         return noOfElements;
     }
 
+    public void increment() {
+        curr++;
+    }
+
+    public void decrement() {
+        curr--;
+    }
+
     /**
      * Mimics the same as getWholeProcessCount(). This is mainly there to avoid confusion regarding conventions.
      * "setExpectedNumber(n)" => "getWholeProcessCount()". Makes no sense.
