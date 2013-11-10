@@ -7,8 +7,9 @@
  * 
  * tabstop=4, charset=UTF-8
  */
-package net.sf.jcprogress;
+package net.sf.jcprogress.utils;
 
+import net.sf.jcprogress.utils.TimeDiffUtils;
 import org.junit.Test;
 
 import java.util.Locale;
@@ -16,15 +17,15 @@ import java.util.Locale;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TimeDiffTest {
+public class TimeDiffUtilsTest {
 
-    public TimeDiffTest() {
+    public TimeDiffUtilsTest() {
         super();
     }
 
     @Test
     public void testMilliSeconds() {
-        TimeDiff td = new TimeDiff(5);    //5ms
+        TimeDiffUtils td = new TimeDiffUtils(5);    //5ms
         assertTrue(0.005f == td.getSeconds());
         assertEquals(0, td.getMinutes());
         assertEquals(0, td.getHours());
@@ -34,28 +35,28 @@ public class TimeDiffTest {
     @Test
     public void testSeconds() {
         {
-            TimeDiff td = new TimeDiff(5000);    //5s = 5000ms
+            TimeDiffUtils td = new TimeDiffUtils(5000);    //5s = 5000ms
             assertTrue(5.0f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(0, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(5600);
+            TimeDiffUtils td = new TimeDiffUtils(5600);
             assertTrue(5.6f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(0, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(5640);
+            TimeDiffUtils td = new TimeDiffUtils(5640);
             assertTrue(5.64f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(0, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(5041);
+            TimeDiffUtils td = new TimeDiffUtils(5041);
             assertTrue(5.041f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(0, td.getHours());
@@ -66,21 +67,21 @@ public class TimeDiffTest {
     @Test
     public void testMinutes() {
         {
-            TimeDiff td = new TimeDiff(240000);    //4min = 4 * 60 * 1000 ms
+            TimeDiffUtils td = new TimeDiffUtils(240000);    //4min = 4 * 60 * 1000 ms
             assertTrue(0.0f == td.getSeconds());
             assertEquals(4, td.getMinutes());
             assertEquals(0, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(241000);    //4min 1s
+            TimeDiffUtils td = new TimeDiffUtils(241000);    //4min 1s
             assertTrue(1.0f == td.getSeconds());
             assertEquals(4, td.getMinutes());
             assertEquals(0, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(241030);    //4min 1.03s
+            TimeDiffUtils td = new TimeDiffUtils(241030);    //4min 1.03s
             assertTrue(1.03f == td.getSeconds());
             assertEquals(4, td.getMinutes());
             assertEquals(0, td.getHours());
@@ -91,35 +92,35 @@ public class TimeDiffTest {
     @Test
     public void testHours() {
         {
-            TimeDiff td = new TimeDiff(10800000);    //3h = 3 * 60 * 60 * 1000 ms
+            TimeDiffUtils td = new TimeDiffUtils(10800000);    //3h = 3 * 60 * 60 * 1000 ms
             assertTrue(0.0f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(3, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(11040000);    //3h 4min
+            TimeDiffUtils td = new TimeDiffUtils(11040000);    //3h 4min
             assertTrue(0.0f == td.getSeconds());
             assertEquals(4, td.getMinutes());
             assertEquals(3, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(11041000);    //3h 4min 1s
+            TimeDiffUtils td = new TimeDiffUtils(11041000);    //3h 4min 1s
             assertTrue(1.0f == td.getSeconds());
             assertEquals(4, td.getMinutes());
             assertEquals(3, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(11041200);    //3h 4min 1.2s
+            TimeDiffUtils td = new TimeDiffUtils(11041200);    //3h 4min 1.2s
             assertTrue(1.2f == td.getSeconds());
             assertEquals(4, td.getMinutes());
             assertEquals(3, td.getHours());
             assertEquals(0, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(10800030);    //3h 0.03s
+            TimeDiffUtils td = new TimeDiffUtils(10800030);    //3h 0.03s
             assertTrue(0.03f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(3, td.getHours());
@@ -130,42 +131,42 @@ public class TimeDiffTest {
     @Test
     public void testDays() {
         {
-            TimeDiff td = new TimeDiff(172800000);    //2d = 2 * 24 * 60 * 60 * 1000 ms
+            TimeDiffUtils td = new TimeDiffUtils(172800000);    //2d = 2 * 24 * 60 * 60 * 1000 ms
             assertTrue(0.0f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(0, td.getHours());
             assertEquals(2, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(255600000);    //2d 23h
+            TimeDiffUtils td = new TimeDiffUtils(255600000);    //2d 23h
             assertTrue(0.0f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(23, td.getHours());
             assertEquals(2, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(259020000);    //2d 23h 57min
+            TimeDiffUtils td = new TimeDiffUtils(259020000);    //2d 23h 57min
             assertTrue(0.0f == td.getSeconds());
             assertEquals(57, td.getMinutes());
             assertEquals(23, td.getHours());
             assertEquals(2, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(259057000);    //2d 23h 57min 37s
+            TimeDiffUtils td = new TimeDiffUtils(259057000);    //2d 23h 57min 37s
             assertTrue(37.0f == td.getSeconds());
             assertEquals(57, td.getMinutes());
             assertEquals(23, td.getHours());
             assertEquals(2, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(259057800);    //2d 23h 57min 37.8s
+            TimeDiffUtils td = new TimeDiffUtils(259057800);    //2d 23h 57min 37.8s
             assertTrue(37.8f == td.getSeconds());
             assertEquals(57, td.getMinutes());
             assertEquals(23, td.getHours());
             assertEquals(2, td.getDays());
         }
         {
-            TimeDiff td = new TimeDiff(172800200);    //2d 0.2s
+            TimeDiffUtils td = new TimeDiffUtils(172800200);    //2d 0.2s
             assertTrue(0.2f == td.getSeconds());
             assertEquals(0, td.getMinutes());
             assertEquals(0, td.getHours());
@@ -175,59 +176,59 @@ public class TimeDiffTest {
 
     @Test
     public void testToString() {
-        TimeDiff td1 = new TimeDiff(172800000);                    //2d
+        TimeDiffUtils td1 = new TimeDiffUtils(172800000);                    //2d
         assertEquals("2d", td1.toString());
 
-        TimeDiff td2 = new TimeDiff(255600000);                    //2d 23h
+        TimeDiffUtils td2 = new TimeDiffUtils(255600000);                    //2d 23h
         assertEquals("2d 23h", td2.toString());
 
-        TimeDiff td3 = new TimeDiff(259020000);                    //2d 23h 57min
+        TimeDiffUtils td3 = new TimeDiffUtils(259020000);                    //2d 23h 57min
         assertEquals("2d 23h 57min", td3.toString());
 
-        TimeDiff td4 = new TimeDiff(259057000);                    //2d 23h 57min 37s
+        TimeDiffUtils td4 = new TimeDiffUtils(259057000);                    //2d 23h 57min 37s
         assertEquals("2d 23h 57min 37s", td4.toString());
 
-        TimeDiff td5 = new TimeDiff(259057800);                    //2d 23h 57min 37.8s
+        TimeDiffUtils td5 = new TimeDiffUtils(259057800);                    //2d 23h 57min 37.8s
         assertEquals("2d 23h 57min 37.8s", td5.toString(Locale.ENGLISH));
 
-        TimeDiff td6 = new TimeDiff(172800200);                    //2d 0.2s
+        TimeDiffUtils td6 = new TimeDiffUtils(172800200);                    //2d 0.2s
         assertEquals("2d 0.2s", td6.toString(Locale.ENGLISH));
         assertEquals("2d 0,2s", td6.toString(Locale.GERMAN));
 
-        TimeDiff td8 = new TimeDiff(10800000);                    //3h
+        TimeDiffUtils td8 = new TimeDiffUtils(10800000);                    //3h
         assertEquals("3h", td8.toString());
 
-        TimeDiff td9 = new TimeDiff(11040000);                    //3h 4min
+        TimeDiffUtils td9 = new TimeDiffUtils(11040000);                    //3h 4min
         assertEquals("3h 4min", td9.toString());
 
-        TimeDiff td10 = new TimeDiff(11041000);                    //3h 4min 1s
+        TimeDiffUtils td10 = new TimeDiffUtils(11041000);                    //3h 4min 1s
         assertEquals("3h 4min 1s", td10.toString());
 
-        TimeDiff td11 = new TimeDiff(11041200);                    //3h 4min 1.2s
+        TimeDiffUtils td11 = new TimeDiffUtils(11041200);                    //3h 4min 1.2s
         assertEquals("3h 4min 1.2s", td11.toString(Locale.ENGLISH));
 
-        TimeDiff td12 = new TimeDiff(10800030);                    //3h 0.03s
+        TimeDiffUtils td12 = new TimeDiffUtils(10800030);                    //3h 0.03s
         assertEquals("3h 0.03s", td12.toString(Locale.ENGLISH));
 
-        TimeDiff td13 = new TimeDiff(240000);                    //4min
+        TimeDiffUtils td13 = new TimeDiffUtils(240000);                    //4min
         assertEquals("4min", td13.toString());
 
-        TimeDiff td14 = new TimeDiff(241000);                    //4min 1s
+        TimeDiffUtils td14 = new TimeDiffUtils(241000);                    //4min 1s
         assertEquals("4min 1s", td14.toString());
 
-        TimeDiff td15 = new TimeDiff(241030);                    //4min 1.03s
+        TimeDiffUtils td15 = new TimeDiffUtils(241030);                    //4min 1.03s
         assertEquals("4min 1.03s", td15.toString(Locale.ENGLISH));
 
-        TimeDiff td16 = new TimeDiff(5000);                        //5s
+        TimeDiffUtils td16 = new TimeDiffUtils(5000);                        //5s
         assertEquals("5s", td16.toString());
 
-        TimeDiff td17 = new TimeDiff(5600);
+        TimeDiffUtils td17 = new TimeDiffUtils(5600);
         assertEquals("5.6s", td17.toString(Locale.ENGLISH));
 
-        TimeDiff td18 = new TimeDiff(5640);
+        TimeDiffUtils td18 = new TimeDiffUtils(5640);
         assertEquals("5.64s", td18.toString(Locale.ENGLISH));
 
-        TimeDiff td19 = new TimeDiff(5041);
+        TimeDiffUtils td19 = new TimeDiffUtils(5041);
         assertEquals("5.041s", td19.toString(Locale.ENGLISH));
     }
 }

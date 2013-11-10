@@ -19,13 +19,6 @@ public class AcceleratingTest extends ConsoleDemo {
 		super(countAll, sleep);
 	}
 
-	public AcceleratingTest(int countAll) {
-		super(countAll);
-	}
-	
-	/* (non-Javadoc)
-	 * @see net.sf.jcprogress.demo.ConsoleDemo#run()
-	 */
 	@Override
 	public void run() {
 		int step1 = 2000;

@@ -6,7 +6,11 @@
  * 
  * charset=utf-8, tabstob=4
  */
-package net.sf.jcprogress;
+package net.sf.jcprogress.abs;
+
+import net.sf.jcprogress.Checkpoint;
+import net.sf.jcprogress.ProgressCalculator;
+import net.sf.jcprogress.ProgressStatusProvider;
 
 import java.util.Date;
 import java.util.Locale;

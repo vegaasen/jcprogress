@@ -7,7 +7,7 @@
  * 
  * tabstop=4, charset=UTF-8
  */
-package net.sf.jcprogress;
+package net.sf.jcprogress.abs;
 
 /**
  * @author pmairif
@@ -17,7 +17,6 @@ public abstract class CharIndicator {
 	protected int rot = 0;
 
 	public CharIndicator() {
-		//
 	}
 
 	abstract public char getNextChar();

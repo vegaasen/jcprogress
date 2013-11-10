@@ -9,37 +9,39 @@
  */
 package net.sf.jcprogress;
 
+import net.sf.jcprogress.abs.ConsoleProgressThreadBase;
+
 import java.io.PrintStream;
 
 /**
  * no progress bar, just indicate that still sth. is happening
+ *
  * @author pmairif
  */
-public class ConsoleProgressIndicatorThread extends ConsoleProgressThreadBase {
+public final class ConsoleProgressIndicatorThread extends ConsoleProgressThreadBase {
 
-	public ConsoleProgressIndicatorThread(PrintStream out, ProgressStatusProvider statusTextProvider) {
-		super(out, statusTextProvider);
-	}
+    public ConsoleProgressIndicatorThread(PrintStream out, ProgressStatusProvider statusTextProvider) {
+        super(out, statusTextProvider);
+    }
 
-	@Override
-	protected void show() {
-		if (statusProvider != null) {
-			progressCalculations();
+    @Override
+    protected void show() {
+        if (statusProvider != null) {
+            progressCalculations();
 
-			this.out.print("\r");				//Anfang der Zeile //$NON-NLS-1$
-			this.out.print(charIndicator.getNextChar());
-		
-			showStatusText();
-			
-			if (hasData()) {
-				if (isStalled()) {
-					showStalled();
-				}
-				else {
-					showEndDate();
-					showRemainingTime();
-				}
-			}
-		}
-	}
+            out.print("\r");
+            out.print(charIndicator.getNextChar());
+
+            showStatusText();
+
+            if (hasData()) {
+                if (isStalled()) {
+                    showStalled();
+                } else {
+                    showEndDate();
+                    showRemainingTime();
+                }
+            }
+        }
+    }
 }
