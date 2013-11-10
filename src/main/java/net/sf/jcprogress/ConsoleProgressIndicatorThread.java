@@ -29,8 +29,8 @@ public final class ConsoleProgressIndicatorThread extends ConsoleProgressThreadB
         if (statusProvider != null) {
             progressCalculations();
 
-            out.print("\r");
-            out.print(charIndicator.getNextChar());
+            printLocation.print("\r");
+            printLocation.print(charIndicator.getNextChar());
 
             showStatusText();
 

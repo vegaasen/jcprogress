@@ -37,7 +37,7 @@ public final class ConsoleProgressBarThread extends ConsoleProgressThreadBase {
     @Override
     protected void show() {
         if (statusProvider != null) {
-            out.print("\r");                //go to begin of line //$NON-NLS-1$
+            printLocation.print("\r");                //go to begin of line //$NON-NLS-1$
             showProgressBar();
             showPercentage();
             showCounter();
@@ -60,18 +60,18 @@ public final class ConsoleProgressBarThread extends ConsoleProgressThreadBase {
             percentage = 1;
         int chars = (int) (percentage * barSize);    //Anzahl Zeichen auf Balken
 
-        out.print("["); //$NON-NLS-1$
+        printLocation.print("["); //$NON-NLS-1$
         for (int i = 0; i < chars; i++) {
-            out.print("#");             //$NON-NLS-1$
+            printLocation.print("#");             //$NON-NLS-1$
         }
 
         if (chars < barSize)
-            out.print(charIndicator.getNextChar());
+            printLocation.print(charIndicator.getNextChar());
 
         for (int i = chars + 1; i < barSize; i++) {
-            out.print(".");             //$NON-NLS-1$
+            printLocation.print(".");             //$NON-NLS-1$
         }
-        out.print("]"); //$NON-NLS-1$
+        printLocation.print("]"); //$NON-NLS-1$
     }
 
     /**

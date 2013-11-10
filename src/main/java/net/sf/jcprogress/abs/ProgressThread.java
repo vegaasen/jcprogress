@@ -41,7 +41,7 @@ public abstract class ProgressThread extends Thread {
 //	private long checkpointElapsedMs = 0;
 //	
 //	/**
-//	 * progress count since last checkpoint
+//	 * progress curr since last checkpoint
 //	 */
 //	private int checkpointProgessCount = 0;
 
